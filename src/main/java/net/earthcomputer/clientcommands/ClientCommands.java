@@ -117,7 +117,6 @@ public class ClientCommands implements ClientModInitializer {
         AliasCommand.register(dispatcher);
         AreaStatsCommand.register(dispatcher, context);
         AuditMixinsCommand.register(dispatcher);
-        AutoPrefixCommand.register(dispatcher, context);
         BookCommand.register(dispatcher);
         CalcCommand.register(dispatcher);
         CalcStackCommand.register(dispatcher, context);

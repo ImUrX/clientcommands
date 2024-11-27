@@ -4,7 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyReceiver;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import net.earthcomputer.clientcommands.ClientCommands;
-import net.earthcomputer.clientcommands.command.AutoPrefixCommand;
+import net.earthcomputer.clientcommands.Configs;
 import net.earthcomputer.clientcommands.command.VarCommand;
 import net.minecraft.client.gui.screens.ChatScreen;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,7 +16,7 @@ public class ChatScreenMixin {
     // but ensure the message is added to the history in its raw form.
     @ModifyReceiver(method = "handleChatInput", at = @At(value = "INVOKE", target = "Ljava/lang/String;startsWith(Ljava/lang/String;)Z", remap = false))
     private String onHandleChatInput(String instance, String slash, @Local(argsOnly = true) LocalRef<String> message) {
-        String prefix = AutoPrefixCommand.getCurrentPrefix();
+        String prefix = Configs.getAutoPrefix();
         if (prefix.isEmpty() || instance.startsWith("/")) {
             prefix = "";
         } else {
