@@ -143,14 +143,8 @@ public class Configs {
         Configs.maxChorusItemThrows = Mth.clamp(maxChorusItemThrows, 0, 1000000);
     }
 
-    @Config(setter = @Config.Setter("setAutoPrefix"), temporary = true)
-    private static String autoPrefix = "";
-    public static String getAutoPrefix() {
-        return autoPrefix;
-    }
-    public static void setAutoPrefix(String newAutoPrefix) {
-        Configs.autoPrefix = newAutoPrefix;
-    }
+    @Config(temporary = true)
+    public static String autoPrefix = "";
 
     @Config(temporary = true, condition = "conditionLessThan1_21")
     public static boolean infiniteTools = false;

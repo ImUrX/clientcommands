@@ -16,7 +16,7 @@ public class ChatScreenMixin {
     // but ensure the message is added to the history in its raw form.
     @ModifyReceiver(method = "handleChatInput", at = @At(value = "INVOKE", target = "Ljava/lang/String;startsWith(Ljava/lang/String;)Z", remap = false))
     private String onHandleChatInput(String instance, String slash, @Local(argsOnly = true) LocalRef<String> message) {
-        String prefix = Configs.getAutoPrefix();
+        String prefix = Configs.autoPrefix;
         if (prefix.isEmpty() || instance.startsWith("/")) {
             prefix = "";
         } else {
